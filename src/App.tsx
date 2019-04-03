@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import './App.css';
 import 'typeface-roboto';
 
-import Home from './home/home.component'
+import Dashboard from './dashboard/dashboard.component';
 
 const theme = createMuiTheme({
   palette: {
@@ -12,10 +13,12 @@ const theme = createMuiTheme({
 });
 
 export default class App extends Component {
+
   render() {
     return (
-      <MuiThemeProvider theme={theme}>
-        <Home></Home>
+      <MuiThemeProvider theme={theme}>        
+        <CssBaseline />
+        <Dashboard />
       </MuiThemeProvider>
     );
   }
