@@ -4,44 +4,32 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import PeopleIcon from '@material-ui/icons/People';
-import BarChartIcon from '@material-ui/icons/BarChart';
-import LayersIcon from '@material-ui/icons/Layers';
+import ListIcon from '@material-ui/icons/List';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import {Link} from 'react-router-dom';
 
 export const mainListItems = (
   <div>
+    <Link to="/home" style={{textDecoration: 'none'}}>
+      <ListItem button>
+        <ListItemIcon>
+          <DashboardIcon />
+        </ListItemIcon>
+        < ListItemText primary="Home" />
+      </ListItem>
+    </Link>
     <ListItem button>
       <ListItemIcon>
-        <DashboardIcon />
+        <ListIcon />
       </ListItemIcon>
-      <ListItemText primary="Dashboard" />
-    </ListItem>
+      <ListItemText primary="Active To Do Lists" />
+    </ListItem>   
     <ListItem button>
       <ListItemIcon>
-        <ShoppingCartIcon />
+        <ListIcon />
       </ListItemIcon>
-      <ListItemText primary="Orders" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <PeopleIcon />
-      </ListItemIcon>
-      <ListItemText primary="Customers" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <BarChartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Reports" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <LayersIcon />
-      </ListItemIcon>
-      <ListItemText primary="Integrations" />
-    </ListItem>
+      <ListItemText primary="Closed To Do Lists" />
+    </ListItem>   
   </div>
 );
 

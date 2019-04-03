@@ -2,9 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
-import Paper from '@material-ui/core/Paper';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
@@ -13,9 +11,10 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-import Home from '../home/home.component'
-import { mainListItems, secondaryListItems } from '../home/listItems';
-import IDashboardProps from './dashboardProps.interface';
+import ILayoutProps from './layoutProps.interface';
+import Router from '../menu/router';
+import Menu from '../menu/menu.component';
+import { BrowserRouter } from 'react-router-dom';
 
 
 const drawerWidth = 240;
@@ -94,10 +93,11 @@ const styles = (theme:any) => ({
     }
   });
 
-class Dashboard extends Component<IDashboardProps, any> {
-    constructor(props: IDashboardProps) {
+class Dashboard extends Component<ILayoutProps, any> {
+    constructor(props: ILayoutProps) {
         super(props);
     }
+
     public state = {
       open: true,
     };
@@ -115,7 +115,7 @@ class Dashboard extends Component<IDashboardProps, any> {
       const classes = this.props['classes'];
 
       return (
-        <Fragment>
+        <BrowserRouter>
             <div className={classes['root']}>
           <AppBar
             position="absolute"
@@ -134,7 +134,7 @@ class Dashboard extends Component<IDashboardProps, any> {
                 <MenuIcon />
               </IconButton>
               <Typography variant="title" color="inherit" noWrap className={classes['title']}>
-                Dashboard
+                To Do App
               </Typography>
              
             </Toolbar>
@@ -152,20 +152,14 @@ class Dashboard extends Component<IDashboardProps, any> {
               </IconButton>
             </div>
             <Divider />
-            <List>{mainListItems}</List>
-            <Divider />
-            <List>{secondaryListItems}</List>
+            <Menu />
           </Drawer>
           <main className={classes['content']}>
             <div className={classes['appBarSpacer']} />
-             <Paper>
-              <Typography variant="title" color="inherit" noWrap className={classes['title']}>
-                Dashboard
-              </Typography>
-             </Paper>
+             <Router />
           </main>
         </div>
-        </Fragment>
+        </BrowserRouter>
       );
     }
   }
