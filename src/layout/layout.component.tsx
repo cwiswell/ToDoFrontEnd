@@ -9,7 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 
 import ILayoutProps from './layoutProps.interface';
 import Router from '../menu/router';
@@ -133,7 +133,7 @@ class Dashboard extends Component<ILayoutProps, any> {
               >
                 <MenuIcon />
               </IconButton>
-              <Typography variant="title" color="inherit" noWrap className={classes['title']}>
+              <Typography variant="h6" color="inherit" noWrap className={classes['title']}>
                 To Do App
               </Typography>
              

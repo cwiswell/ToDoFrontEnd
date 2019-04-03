@@ -7,12 +7,13 @@ export default class PageNotFound extends Component {
 
     return (
       <Card style={{padding: '10px'}}>
-        <Typography variant="display1">
-            Oh Noes
+        <Typography variant="h1">
+            Oh Noes!
         </Typography>
-        <Typography variant="display1">
+        <Typography variant="h4">
             You went some where you shouldn't.
-            For Shame
+            <br />
+            Shame
         </Typography>
      </Card>
     )

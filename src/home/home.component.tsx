@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import IHomeProps from './homeProps.interface';
 import { withStyles } from '@material-ui/core/styles';
 import { CardContent, CardHeader, Grid } from '@material-ui/core';
+import ToDo from '../toDoComponent/to-do.component';
 
 const styles = (theme: any) => ({
   root: {
@@ -29,7 +30,7 @@ class Home extends Component<IHomeProps, any> {
     return (
       <Fragment>
         <Grid container className={classes.root} spacing={16}>
-          <Grid item xs={4}>
+          <Grid item md={4}>
             <Card >
               <CardHeader title="Wiswell Household ToDo List Application">
               </CardHeader>
@@ -41,15 +42,13 @@ class Home extends Component<IHomeProps, any> {
               </CardContent>
             </Card>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item md={4}>
             <Card >
               <CardHeader title="Current To Do List">
               </CardHeader>
 
               <CardContent>
-                <Typography>
-                  Item 1
-                </Typography>
+                <ToDo />
               </CardContent>
             </Card>
           </Grid>

@@ -10,8 +10,7 @@ export default class Router extends Component{
         return(
             <Switch>                
                 <Route exact path="/" component={Home} />
-                <Route exact path="/home" component={Home} />
-                <Route exact path="/Home" component={Home} />
+                <Route path="/home" component={Home} />
                 <Route component={PageNotFound} />
             </Switch>
         )
