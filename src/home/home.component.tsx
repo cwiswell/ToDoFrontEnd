@@ -24,29 +24,29 @@ class Home extends Component<IHomeProps, any> {
   constructor(props: IHomeProps) {
     super(props);
   }
-  toDoData = [new ToDoItem("Some Item", false), new ToDoItem("Do Dishes", false)];
+  toDoData = [new ToDoItem("Some Item", false), new ToDoItem("Do Dishes", true), new ToDoItem("Yard Work", false), new ToDoItem("Make dinner", false)];
 
   render() {
     const classes = this.props['classes'];
 
     return (
       <Fragment>
-        <Grid container className={classes.root} spacing={16}>
-          <Grid item md={4}>
+        <Grid container className={classes.root} spacing={8}>
+          <Grid item md={12}>
             <Card >
-              <CardHeader title="Wiswell Household ToDo List Application">
+              <CardHeader title="Some Graph of history">
               </CardHeader>
 
               <CardContent>
                 <Typography>
-                  Lets do some stuff
+                  Some graph will go here.
                 </Typography>
               </CardContent>
             </Card>
           </Grid>
           <Grid item md={4}>
             <Card >
-              <CardHeader title="Current To Do List">
+              <CardHeader title="Main To Do List">
               </CardHeader>
 
               <CardContent>
@@ -54,8 +54,38 @@ class Home extends Component<IHomeProps, any> {
               </CardContent>
             </Card>
           </Grid>
-        </Grid>
+          <Grid item md={4}>
+            <Card >
+              <CardHeader title="Active To Do Lists">
+              </CardHeader>
 
+              <CardContent>
+                <Typography>
+                  to do list 1
+                </Typography>
+                <Typography>
+                  to do list 2
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item md={4}>
+            <Card >
+              <CardHeader title="Recently Closed">
+              </CardHeader>
+
+              <CardContent>
+                <Typography>
+                  closed list 1
+                </Typography>
+                <Typography>
+                  closed list 2
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+        
       </Fragment>
     )
   };
