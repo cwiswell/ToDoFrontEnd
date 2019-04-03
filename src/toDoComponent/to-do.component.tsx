@@ -3,42 +3,37 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
+import IToDoProps from './todoProps.interface';
+import ToDoItem from './todo.class';
 
-export default class ToDo extends Component {
+export default class ToDo extends Component<IToDoProps,any> {
+    constructor(props: IToDoProps) {
+      super(props);
+    }
+
     public state = {
-        checked: [0],
-    };
+        data: this.props.data
+    }
 
-    handleToggle = (value: any) => () => {
-        const { checked } = this.state;
-        const currentIndex = checked.indexOf(value);
-        const newChecked = [...checked];
-
-        if (currentIndex === -1) {
-            newChecked.push(value);
-        } else {
-            newChecked.splice(currentIndex, 1);
-        }
-
-        this.setState({
-            checked: newChecked,
-        });
+    handleToggle = (item: ToDoItem) => () => {
+        item.checked =  !item.checked;
+        this.setState({data: this.props.data});
     };
 
     render() {
         return (
             <Fragment>
                 <List >
-                    {[0, 1, 2, 3].map(value => (
-                        <ListItem key={value} role={undefined} dense button onClick={this.handleToggle(value)} style={{
-                            textDecoration: this.state.checked.indexOf(value) !== -1 ? 'line-through' : 'none'
+                    {this.props.data.map((item, key) => (
+                        <ListItem key={key} role={undefined} dense button onClick={this.handleToggle(item)} style={{
+                            textDecoration: item.checked? 'line-through' : 'none'
                           }}>
                             <Checkbox
-                                checked={this.state.checked.indexOf(value) !== -1}
+                                checked={item.checked}
                                 tabIndex={-1}
                                 disableRipple
                             />
-                            <ListItemText primary={`Line item ${value + 1}`} />
+                            <ListItemText primary={item.text} />
                         </ListItem>
                     ))}
                 </List>

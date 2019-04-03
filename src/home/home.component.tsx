@@ -5,6 +5,7 @@ import IHomeProps from './homeProps.interface';
 import { withStyles } from '@material-ui/core/styles';
 import { CardContent, CardHeader, Grid } from '@material-ui/core';
 import ToDo from '../toDoComponent/to-do.component';
+import ToDoItem from '../toDoComponent/todo.class';
 
 const styles = (theme: any) => ({
   root: {
@@ -23,6 +24,7 @@ class Home extends Component<IHomeProps, any> {
   constructor(props: IHomeProps) {
     super(props);
   }
+  toDoData = [new ToDoItem("Some Item", false), new ToDoItem("Do Dishes", false)];
 
   render() {
     const classes = this.props['classes'];
@@ -48,7 +50,7 @@ class Home extends Component<IHomeProps, any> {
               </CardHeader>
 
               <CardContent>
-                <ToDo />
+                <ToDo data={this.toDoData} />
               </CardContent>
             </Card>
           </Grid>
