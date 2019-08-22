@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -14,7 +14,6 @@ import ILayoutProps from './layoutProps.interface';
 import Router from '../menu/router';
 import Menu from '../menu/menu.component';
 import { BrowserRouter } from 'react-router-dom';
-
 
 const drawerWidth = 240;
 
@@ -92,75 +91,65 @@ const styles = (theme: any) => ({
   }
 });
 
-class Dashboard extends Component<ILayoutProps, any> {
-  constructor(props: ILayoutProps) {
-    super(props);
-  }
+const Dashboard: React.FC<ILayoutProps> = (props) => {
+  const [open, setOpen] = useState<boolean>(false);
 
-  public state = {
-    open: true,
+  const handleDrawerOpen = () => {
+    setOpen(true);
   };
 
-  public handleDrawerOpen = () => {
-    this.setState({ open: true });
+  const handleDrawerClose = () => {
+    setOpen(false);
   };
 
-  public handleDrawerClose = () => {
-    this.setState({ open: false });
-  };
+  const classes = props.classes;
 
-
-  render() {
-    const classes = this.props['classes'];
-
-    return (
-      <BrowserRouter>
-        <div className={classes['root']}>
-          <AppBar
-            position="absolute"
-            className={classNames(classes['appBar'], this.state.open && classes['appBarShift'])}
-          >
-            <Toolbar disableGutters={!this.state.open} className={classes['toolbar']}>
-              <IconButton
-                color="inherit"
-                aria-label="Open drawer"
-                onClick={this.handleDrawerOpen}
-                className={classNames(
-                  classes['menuButton'],
-                  this.state.open && classes['menuButtonHidden'],
-                )}
-              >
-                <MenuIcon />
-              </IconButton>
-              <Typography variant="h6" color="inherit" noWrap className={classes['title']}>
-                To Do App
-              </Typography>
-
-            </Toolbar>
-          </AppBar>
-          <Drawer
-            variant="permanent"
-            classes={{
-              paper: classNames(classes['drawerPaper'], !this.state.open && classes['drawerPaperClose']),
-            }}
-            open={this.state.open}
-          >
-            <div className={classes['toolbarIcon']}>
-              <IconButton onClick={this.handleDrawerClose}>
-                <ChevronLeftIcon />
-              </IconButton>
-            </div>
-            <Divider />
-            <Menu />
-          </Drawer>
-          <main className={classes['content']}>
-            <div className={classes['appBarSpacer']} />
-            <Router />
-          </main>
-        </div>
-      </BrowserRouter>
-    );
-  }
+  return (
+    <BrowserRouter>
+      <div className={classes['root']}>
+        <AppBar
+          position="absolute"
+          className={classNames(classes['appBar'], open && classes['appBarShift'])}
+        >
+          <Toolbar disableGutters={!open} className={classes['toolbar']}>
+            <IconButton
+              color="inherit"
+              aria-label="Open drawer"
+              onClick={handleDrawerOpen}
+              className={classNames(
+                classes['menuButton'],
+                open && classes['menuButtonHidden'],
+              )}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" color="inherit" noWrap className={classes['title']}>
+              To Do App
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <Drawer
+          variant="permanent"
+          classes={{
+            paper: classNames(classes['drawerPaper'], !open && classes['drawerPaperClose']),
+          }}
+          open={open}
+        >
+          <div className={classes['toolbarIcon']}>
+            <IconButton onClick={handleDrawerClose}>
+              <ChevronLeftIcon />
+            </IconButton>
+          </div>
+          <Divider />
+          <Menu />
+        </Drawer>
+        <main className={classes['content']}>
+          <div className={classes['appBarSpacer']} />
+          <Router />
+        </main>
+      </div>
+    </BrowserRouter>
+  );
 }
 
 export default withStyles(styles as any)(Dashboard);
