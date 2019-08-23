@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 
-export default class PageNotFound extends Component {
-  render() {
-
+const PageNotFound: React.FC = () => {
     return (
       <Card style={{padding: '10px'}}>
         <Typography variant="h1">
@@ -13,9 +11,10 @@ export default class PageNotFound extends Component {
         <Typography variant="h4">
             You went some where you shouldn't.
             <br />
-            Shame
+            Shame On You
         </Typography>
      </Card>
     )
-  };
 }
+
+export default  PageNotFound;
