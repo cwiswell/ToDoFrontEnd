@@ -9,7 +9,7 @@ import {Link} from 'react-router-dom';
 export const mainListItems = (
   <div>
     <Link to="/home" style={{textDecoration: 'none'}}>
-      <ListItem button>
+      <ListItem button >
         <ListItemIcon>
           <DashboardIcon />
         </ListItemIcon>

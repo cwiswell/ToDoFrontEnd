@@ -31,7 +31,7 @@ class Home extends Component<IHomeProps, any> {
 
     return (
       <Fragment>
-        <Grid container className={classes.root} spacing={8}>
+        <Grid container className={classes.root} spacing={2}>
           <Grid item md={12}>
             <Card >
               <CardHeader title="Some Graph of history">

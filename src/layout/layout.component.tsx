@@ -8,7 +8,7 @@ import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import ILayoutProps from './layoutProps.interface';
 import Router from '../menu/router';
@@ -109,14 +109,14 @@ const Dashboard: React.FC<ILayoutProps> = (props) => {
       <div className={classes['root']}>
         <AppBar
           position="absolute"
-          className={classNames(classes['appBar'], open && classes['appBarShift'])}
+          className={clsx(classes['appBar'], open && classes['appBarShift'])}
         >
           <Toolbar disableGutters={!open} className={classes['toolbar']}>
             <IconButton
               color="inherit"
               aria-label="Open drawer"
               onClick={handleDrawerOpen}
-              className={classNames(
+              className={clsx(
                 classes['menuButton'],
                 open && classes['menuButtonHidden'],
               )}
@@ -131,7 +131,7 @@ const Dashboard: React.FC<ILayoutProps> = (props) => {
         <Drawer
           variant="permanent"
           classes={{
-            paper: classNames(classes['drawerPaper'], !open && classes['drawerPaperClose']),
+            paper: clsx(classes['drawerPaper'], !open && classes['drawerPaperClose']),
           }}
           open={open}
         >
