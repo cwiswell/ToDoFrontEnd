@@ -41,7 +41,7 @@ const styles = (theme: any) => ({
     flexGrow: 1,
     height: '100vh',
     overflow: 'auto',
-    padding: theme.spacing.unit * 3,
+    padding: theme.spacing(3),
   },
   drawerPaper: {
     position: 'relative',
@@ -58,9 +58,9 @@ const styles = (theme: any) => ({
       duration: theme.transitions.duration.leavingScreen,
       easing: theme.transitions.easing.sharp,
     }),
-    width: theme.spacing.unit * 7,
+    width: theme.spacing(7),
     [theme.breakpoints.up('sm')]: {
-      width: theme.spacing.unit * 9,
+      width: theme.spacing(9),
     },
   },
   menuButton: {
