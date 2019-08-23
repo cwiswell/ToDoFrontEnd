@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import Card from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import IHomeProps from './homeProps.interface';
@@ -20,75 +20,71 @@ const styles = (theme: any) => ({
   },
 });
 
-class Home extends Component<IHomeProps, any> {
-  constructor(props: IHomeProps) {
-    super(props);
-  }
-  toDoData = [new ToDoItem("Some Item", false), new ToDoItem("Do Dishes", true), new ToDoItem("Yard Work", false), new ToDoItem("Make dinner", false)];
+const Home: React.FC<IHomeProps> = (props) => {
+  const toDoData = [new ToDoItem("Some Item", false), new ToDoItem("Do Dishes", true), new ToDoItem("Yard Work", false), new ToDoItem("Make dinner", false)];
 
-  render() {
-    const classes = this.props['classes'];
+  const classes = props['classes'];
 
-    return (
-      <Fragment>
-        <Grid container className={classes.root} spacing={2}>
-          <Grid item md={12}>
-            <Card >
-              <CardHeader title="Some Graph of history">
-              </CardHeader>
+  return (
+    <Fragment>
+      <Grid container className={classes.root} spacing={2}>
+        <Grid item md={12}>
+          <Card >
+            <CardHeader title="Some Graph of history">
+            </CardHeader>
 
-              <CardContent>
-                <Typography>
-                  Some graph will go here.
+            <CardContent>
+              <Typography>
+                Some graph will go here.
                 </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item md={4}>
-            <Card >
-              <CardHeader title="Main To Do List">
-              </CardHeader>
-
-              <CardContent>
-                <ToDo data={this.toDoData} />
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item md={4}>
-            <Card >
-              <CardHeader title="Active To Do Lists">
-              </CardHeader>
-
-              <CardContent>
-                <Typography>
-                  to do list 1
-                </Typography>
-                <Typography>
-                  to do list 2
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item md={4}>
-            <Card >
-              <CardHeader title="Recently Closed">
-              </CardHeader>
-
-              <CardContent>
-                <Typography>
-                  closed list 1
-                </Typography>
-                <Typography>
-                  closed list 2
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
+            </CardContent>
+          </Card>
         </Grid>
-        
-      </Fragment>
-    )
-  };
+        <Grid item md={4}>
+          <Card >
+            <CardHeader title="Main To Do List">
+            </CardHeader>
+
+            <CardContent>
+              <ToDo data={toDoData} />
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item md={4}>
+          <Card >
+            <CardHeader title="Active To Do Lists">
+            </CardHeader>
+
+            <CardContent>
+              <Typography>
+                to do list 1
+                </Typography>
+              <Typography>
+                to do list 2
+                </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item md={4}>
+          <Card >
+            <CardHeader title="Recently Closed">
+            </CardHeader>
+
+            <CardContent>
+              <Typography>
+                closed list 1
+                </Typography>
+              <Typography>
+                closed list 2
+                </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+      </Grid>
+
+    </Fragment>
+  );
+
 }
 
 export default withStyles(styles as any)(Home);
