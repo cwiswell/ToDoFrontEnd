@@ -7,6 +7,7 @@ import ToDoItem from './todo.class';
 type ToDoCheckItemProps ={
     data: ToDoItem;
     key: number;
+    enabled: boolean;
 }
 
 const ToDoCheckItem: React.FC<ToDoCheckItemProps> = (props) => {
@@ -22,6 +23,7 @@ const ToDoCheckItem: React.FC<ToDoCheckItemProps> = (props) => {
                 textDecoration: checked ? 'line-through' : 'none'
             }}>
                 <Checkbox
+                    disabled={!props.enabled}
                     checked={checked}
                     tabIndex={-1}
                     disableRipple

@@ -46,7 +46,7 @@ const Home: React.FC<IHomeProps> = (props) => {
             </CardHeader>
 
             <CardContent>
-              <ToDo data={toDoData} />
+              <ToDo data={toDoData} enabled={true}/>
             </CardContent>
           </Card>
         </Grid>
@@ -71,12 +71,7 @@ const Home: React.FC<IHomeProps> = (props) => {
             </CardHeader>
 
             <CardContent>
-              <Typography>
-                closed list 1
-                </Typography>
-              <Typography>
-                closed list 2
-                </Typography>
+              <ToDo data={toDoData} enabled={false}/>
             </CardContent>
           </Card>
         </Grid>
