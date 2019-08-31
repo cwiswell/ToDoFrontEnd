@@ -4,7 +4,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
 import ToDoItem from './todo.class';
 
-type ToDoCheckItemProps ={
+type ToDoCheckItemProps = {
     data: ToDoItem;
     key: number;
     enabled: boolean;
@@ -14,7 +14,9 @@ const ToDoCheckItem: React.FC<ToDoCheckItemProps> = (props) => {
     const [checked, setChecked] = useState<boolean>(props.data.checked);
 
     const handleToggle = () => {
-        setChecked(!checked);
+        if (props.enabled) {
+            setChecked(!checked);
+        }
     };
 
     return (

@@ -32,7 +32,7 @@ const Home: React.FC<IHomeProps> = (props) => {
       <Grid container className={classes.root} spacing={2}>
         <Grid item md={12}>
           <Card >
-            <CardHeader title="Some Graph of history" subheader={toDoList.title}>
+            <CardHeader title="Some Graph of history">
             </CardHeader>
 
             <CardContent>
@@ -46,7 +46,6 @@ const Home: React.FC<IHomeProps> = (props) => {
           <Card >
             <CardHeader title="Recent To Do List"  subheader={toDoList.title}>
             </CardHeader>
-
             <CardContent>
               <ToDo data={toDoList} enabled={true}/>
             </CardContent>
