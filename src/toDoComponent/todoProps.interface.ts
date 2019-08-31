@@ -1,7 +1,6 @@
-import ToDoItem from "./todo.class";
+import ToDoList from "./todo-list.class";
 
 export default interface ITodoProps{
-    data: ToDoItem[];
+    data: ToDoList;
     enabled: boolean;
-
 }

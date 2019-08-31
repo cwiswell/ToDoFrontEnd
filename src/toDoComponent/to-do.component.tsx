@@ -8,7 +8,7 @@ const ToDo: React.FC<IToDoProps> = (props) => {
     return (
         <Fragment>
             <List >
-                {props.data.map((item, key) => (
+                {props.data.ToDoItems.map((item, key) => (
                     <ToDoCheckItem key={key} data={item} enabled={props.enabled}/>
                 ))}
             </List>
