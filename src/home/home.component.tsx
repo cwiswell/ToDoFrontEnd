@@ -42,7 +42,7 @@ const Home: React.FC<IHomeProps> = (props) => {
         </Grid>
         <Grid item md={4}>
           <Card >
-            <CardHeader title="Main To Do List">
+            <CardHeader title="Recent To Do List">
             </CardHeader>
 
             <CardContent>
