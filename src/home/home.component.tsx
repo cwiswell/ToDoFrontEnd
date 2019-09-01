@@ -44,7 +44,7 @@ const Home: React.FC<IHomeProps> = (props) => {
           </Card>
         </Grid>
         <Grid item md={4}>
-          <ToDoCard cardTitle="Recent To Do Lost" toDoList={toDoList}/>
+          <ToDoCard cardTitle="Recent To Do Lost" toDoList={toDoList} checkEnable={true}/>
         </Grid>
         <Grid item md={4}>
           <Card >
@@ -62,14 +62,7 @@ const Home: React.FC<IHomeProps> = (props) => {
           </Card>
         </Grid>
         <Grid item md={4}>
-          <Card >
-            <CardHeader title="Recently Closed" subheader={prevToDoList.title}>
-            </CardHeader>
-
-            <CardContent>
-              <ToDo data={prevToDoList} enabled={false}/>
-            </CardContent>
-          </Card>
+          <ToDoCard cardTitle="Recently Closed" toDoList={prevToDoList} checkEnable={false}/>
         </Grid>
       </Grid>
 

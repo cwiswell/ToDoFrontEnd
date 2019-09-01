@@ -25,7 +25,7 @@ const ToDoCard: React.FC<IToDoCard> = (props) => {
             <CardHeader title={props.cardTitle}  subheader={props.toDoList.title}>
             </CardHeader>
             <CardContent>
-              <ToDo data={props.toDoList} enabled={true}/>
+              <ToDo data={props.toDoList} enabled={props.checkEnable}/>
             </CardContent>
           </Card>
     </Fragment>
