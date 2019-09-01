@@ -7,6 +7,7 @@ import { CardContent, CardHeader, Grid } from '@material-ui/core';
 import ToDo from '../toDoComponent/to-do.component';
 import ToDoItem from '../toDoComponent/todo.class';
 import ToDoList from '../toDoComponent/todo-list.class';
+import ToDoCard from './to-do-card';
 
 const styles = (theme: any) => ({
   root: {
@@ -43,13 +44,7 @@ const Home: React.FC<IHomeProps> = (props) => {
           </Card>
         </Grid>
         <Grid item md={4}>
-          <Card >
-            <CardHeader title="Recent To Do List"  subheader={toDoList.title}>
-            </CardHeader>
-            <CardContent>
-              <ToDo data={toDoList} enabled={true}/>
-            </CardContent>
-          </Card>
+          <ToDoCard cardTitle="Recent To Do Lost" toDoList={toDoList}/>
         </Grid>
         <Grid item md={4}>
           <Card >
