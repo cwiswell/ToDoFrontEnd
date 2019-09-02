@@ -3,8 +3,9 @@ import Card from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import IHomeProps from './homeProps.interface';
 import { withStyles } from '@material-ui/core/styles';
-import { CardContent, CardHeader, Grid } from '@material-ui/core';
-import ToDo from '../toDoComponent/to-do.component';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
+import Grid from '@material-ui/core/Grid';
 import ToDoItem from '../toDoComponent/todo.class';
 import ToDoList from '../toDoComponent/todo-list.class';
 import ToDoCard from './to-do-card';
@@ -67,7 +68,6 @@ const Home: React.FC<IHomeProps> = (props) => {
 
     </Fragment>
   );
-
 }
 
 export default withStyles(styles as any)(Home);
