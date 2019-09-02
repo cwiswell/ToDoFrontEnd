@@ -1,22 +1,9 @@
 import React, { Fragment } from 'react';
 import Card from '@material-ui/core/Paper';
-import { withStyles } from '@material-ui/core/styles';
-import { CardContent, CardHeader, Grid } from '@material-ui/core';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
 import ToDo from '../toDoComponent/to-do.component';
 import IToDoCard from './to-do-card-props.interface';
-
-const styles = (theme: any) => ({
-    root: {
-        flexGrow: 1,
-    },
-    paper: {
-        height: 140,
-        width: 100,
-    },
-    control: {
-        padding: theme.spacing(2),
-    },
-});
 
 const ToDoCard: React.FC<IToDoCard> = (props) => {
     return (
@@ -30,7 +17,6 @@ const ToDoCard: React.FC<IToDoCard> = (props) => {
             </Card>
         </Fragment>
     );
-
 }
 
-export default (ToDoCard);
+export default ToDoCard;
