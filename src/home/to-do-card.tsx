@@ -7,23 +7,30 @@ import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
 import ToDo from '../toDoComponent/to-do.component';
 import IToDoCard from './to-do-card-props.interface';
+import ToDoList from '../toDoComponent/todo-list.class';
+import { Typography } from '@material-ui/core';
 
 const ToDoCard: React.FC<IToDoCard> = (props) => {
 
-    const editAction = props.checkEnable ? 
+    const editAction = props.checkEnable && props.toDoList !== null ? 
         ( <CardActions disableSpacing>
             <IconButton aria-label="edit to do list">
                 <EditIcon />
             </IconButton>
         </CardActions>) :
         null;
+    
+    const subheader = props.toDoList === null ? null : props.toDoList.title;
+    const cardBody = props.toDoList === null ? 
+        (<Typography>No to do lists available.</Typography>) :
+        (<ToDo data={props.toDoList as ToDoList} enabled={props.checkEnable as boolean} />) 
 
     return (
         <Fragment>
             <Card >
-                <CardHeader title={props.cardTitle} subheader={props.toDoList.title} action={editAction} />
+                <CardHeader title={props.cardTitle} subheader={subheader} action={editAction} />
                 <CardContent>
-                    <ToDo data={props.toDoList} enabled={props.checkEnable} />
+                    {cardBody}
                 </CardContent>     
             </Card>
         </Fragment>
