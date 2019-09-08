@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import Card from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import IHomeProps from './homeProps.interface';
@@ -24,6 +24,10 @@ const styles = (theme: any) => ({
 });
 
 const Home: React.FC<IHomeProps> = (props) => {
+  const [currentToDoList, setCurrentToDoList] = useState<ToDoList | null>(null);
+
+  
+
   const toDoData = [new ToDoItem("Some Item", false), new ToDoItem("Do Dishes", true), new ToDoItem("Yard Work", false), new ToDoItem("Make dinner", false)];
   const toDoList = new ToDoList("Monday ToDo List", toDoData);
   const prevToDoList = new ToDoList("Sunday To Do List", toDoData);

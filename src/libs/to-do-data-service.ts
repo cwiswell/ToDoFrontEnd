@@ -11,9 +11,15 @@ function GetToDo(id: number): Promise<ToDoList | null> {
         return null;
     });
 }
-function GetRecentlyClosedToDo(): Promise<ToDoList | null>{
+function GetRecentlyClosedToDo(): Promise<ToDoList | null> {
     return new Promise<ToDoList | null>((resolve, reject) => {
         return null;
     });
 }
-export default { GetActiveToDos, GetToDo,GetRecentlyClosedToDo }
+
+function GetMostRecentActiveToDo(): Promise<ToDoList | null> {
+    return new Promise<ToDoList | null>((resolve, reject) => {
+        return null;
+    });
+}
+export default { GetActiveToDos, GetMostRecentActiveToDo, GetToDo, GetRecentlyClosedToDo }
