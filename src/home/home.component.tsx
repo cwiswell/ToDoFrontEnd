@@ -27,6 +27,9 @@ const styles = (theme: any) => ({
 const Home: React.FC<IHomeProps> = (props) => {
   const [currentToDoList, setCurrentToDoList] = useState<ToDoList | null>(null);
 
+  GetMostRecentActiveToDo().then((data) =>{
+    setCurrentToDoList(data);
+  });
 
   const toDoData = [new ToDoItem("Some Item", false), new ToDoItem("Do Dishes", true), new ToDoItem("Yard Work", false), new ToDoItem("Make dinner", false)];
   const toDoList = new ToDoList("Monday ToDo List", toDoData);
@@ -49,7 +52,7 @@ const Home: React.FC<IHomeProps> = (props) => {
           </Card>
         </Grid>
         <Grid item md={4}>
-          <ToDoCard cardTitle="Recent To Do Lost" toDoList={toDoList} checkEnable={true} />
+          <ToDoCard cardTitle="Recent To Do Lost" toDoList={currentToDoList} checkEnable={true} />
         </Grid>
         <Grid item md={4}>
           <Card >
