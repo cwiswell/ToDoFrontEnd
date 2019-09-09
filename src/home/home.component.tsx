@@ -9,6 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import ToDoItem from '../toDoComponent/todo.class';
 import ToDoList from '../toDoComponent/todo-list.class';
 import ToDoCard from './to-do-card';
+import { GetMostRecentActiveToDo } from '../libs/to-do-data-service';
 
 const styles = (theme: any) => ({
   root: {
@@ -26,7 +27,6 @@ const styles = (theme: any) => ({
 const Home: React.FC<IHomeProps> = (props) => {
   const [currentToDoList, setCurrentToDoList] = useState<ToDoList | null>(null);
 
-  
 
   const toDoData = [new ToDoItem("Some Item", false), new ToDoItem("Do Dishes", true), new ToDoItem("Yard Work", false), new ToDoItem("Make dinner", false)];
   const toDoList = new ToDoList("Monday ToDo List", toDoData);

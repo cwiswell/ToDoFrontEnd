@@ -1,25 +1,23 @@
 import ToDoList from "../toDoComponent/todo-list.class";
 
-
-function GetActiveToDos(): Promise<ToDoList[] | null> {
+export function GetActiveToDos(): Promise<ToDoList[] | null> {
     return new Promise<ToDoList[] | null>((resolve, reject) => {
         return null;
     });
 }
-function GetToDo(id: number): Promise<ToDoList | null> {
+export function GetToDo(id: number): Promise<ToDoList | null> {
     return new Promise<ToDoList | null>((resolve, reject) => {
         return null;
     });
 }
-function GetRecentlyClosedToDo(): Promise<ToDoList | null> {
+export function GetRecentlyClosedToDo(): Promise<ToDoList | null> {
     return new Promise<ToDoList | null>((resolve, reject) => {
         return null;
     });
 }
 
-function GetMostRecentActiveToDo(): Promise<ToDoList | null> {
+export function GetMostRecentActiveToDo(): Promise<ToDoList | null> {
     return new Promise<ToDoList | null>((resolve, reject) => {
         return null;
     });
 }
-export default { GetActiveToDos, GetMostRecentActiveToDo, GetToDo, GetRecentlyClosedToDo }
