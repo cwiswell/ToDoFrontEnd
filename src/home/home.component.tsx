@@ -9,7 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import ToDoItem from '../toDoComponent/todo.class';
 import ToDoList from '../toDoComponent/todo-list.class';
 import ToDoCard from './to-do-card';
-import { GetMostRecentActiveToDo } from '../libs/to-do-data-service';
+import { GetMostRecentActiveToDo, GetRecentlyClosedToDo } from '../libs/to-do-data-service';
 
 const styles = (theme: any) => ({
   root: {
@@ -26,9 +26,14 @@ const styles = (theme: any) => ({
 
 const Home: React.FC<IHomeProps> = (props) => {
   const [currentToDoList, setCurrentToDoList] = useState<ToDoList | null>(null);
+  const [recentlyClosed, setRecentlyClosed] = useState<ToDoList | null>(null);
 
   GetMostRecentActiveToDo().then((data) =>{
     setCurrentToDoList(data);
+  });
+
+  GetRecentlyClosedToDo().then((data) =>{
+    setRecentlyClosed(data);
   });
 
   const toDoData = [new ToDoItem("Some Item", false), new ToDoItem("Do Dishes", true), new ToDoItem("Yard Work", false), new ToDoItem("Make dinner", false)];
@@ -69,7 +74,7 @@ const Home: React.FC<IHomeProps> = (props) => {
           </Card>
         </Grid>
         <Grid item md={4}>
-          <ToDoCard cardTitle="Recently Closed" toDoList={prevToDoList} checkEnable={false} />
+          <ToDoCard cardTitle="Recently Closed" toDoList={recentlyClosed} checkEnable={false} />
         </Grid>
       </Grid>
 
