@@ -6,7 +6,6 @@ import { withStyles } from '@material-ui/core/styles';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import Grid from '@material-ui/core/Grid';
-import ToDoItem from '../toDoComponent/todo.class';
 import ToDoList from '../toDoComponent/todo-list.class';
 import ToDoCard from './to-do-card';
 import { GetMostRecentActiveToDo, GetRecentlyClosedToDo } from '../libs/to-do-data-service';
@@ -36,9 +35,6 @@ const Home: React.FC<IHomeProps> = (props) => {
     setRecentlyClosed(data);
   });
 
-  //const toDoData = [new ToDoItem("Some Item", false), new ToDoItem("Do Dishes", true), new ToDoItem("Yard Work", false), new ToDoItem("Make dinner", false)];
- // const toDoList = new ToDoList("Monday ToDo List", toDoData);
-  //const prevToDoList = new ToDoList("Sunday To Do List", toDoData);
   const classes = props['classes'];
 
   return (
