@@ -36,9 +36,9 @@ const Home: React.FC<IHomeProps> = (props) => {
     setRecentlyClosed(data);
   });
 
-  const toDoData = [new ToDoItem("Some Item", false), new ToDoItem("Do Dishes", true), new ToDoItem("Yard Work", false), new ToDoItem("Make dinner", false)];
-  const toDoList = new ToDoList("Monday ToDo List", toDoData);
-  const prevToDoList = new ToDoList("Sunday To Do List", toDoData);
+  //const toDoData = [new ToDoItem("Some Item", false), new ToDoItem("Do Dishes", true), new ToDoItem("Yard Work", false), new ToDoItem("Make dinner", false)];
+ // const toDoList = new ToDoList("Monday ToDo List", toDoData);
+  //const prevToDoList = new ToDoList("Sunday To Do List", toDoData);
   const classes = props['classes'];
 
   return (
