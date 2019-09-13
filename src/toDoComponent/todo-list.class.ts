@@ -1,5 +1,6 @@
 import ToDoItem from "./todo.class";
 
-export default class ToDoList{
-    constructor(public title: string, public ToDoItems: ToDoItem[]){ }
+export default interface ToDoList{
+    title: string;
+    toDoItems: ToDoItem[];
 }
