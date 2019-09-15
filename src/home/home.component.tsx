@@ -8,7 +8,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Grid from '@material-ui/core/Grid';
 import ToDoList from '../toDoComponent/todo-list.interface';
 import ToDoCard from './to-do-card';
-import { GetMostRecentActiveToDo, GetRecentlyClosedToDo } from '../libs/to-do-data-service';
+import { GetMostRecentActiveToDo, GetRecentlyClosedToDo, GetActiveToDos } from '../libs/to-do-data-service';
 
 const styles = (theme: any) => ({
   root: {
@@ -26,6 +26,7 @@ const styles = (theme: any) => ({
 const Home: React.FC<IHomeProps> = (props) => {
   const [currentToDoList, setCurrentToDoList] = useState<ToDoList | null>(null);
   const [recentlyClosed, setRecentlyClosed] = useState<ToDoList | null>(null);
+  const [activeToDoLists, setActiveToDoLists] = useState<ToDoList[] | null>(null);
 
   GetMostRecentActiveToDo().then((data) =>{
     setCurrentToDoList(data);
@@ -33,6 +34,10 @@ const Home: React.FC<IHomeProps> = (props) => {
 
   GetRecentlyClosedToDo().then((data) =>{
     setRecentlyClosed(data);
+  });
+
+  GetActiveToDos().then((data) =>{
+    setActiveToDoLists(data);
   });
 
   const classes = props['classes'];
