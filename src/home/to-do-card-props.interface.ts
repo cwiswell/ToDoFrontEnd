@@ -1,4 +1,4 @@
-import ToDoList from "../toDoComponent/todo-list.class";
+import ToDoList from "../toDoComponent/todo-list.interface";
 
 export default interface IToDoCard{
     cardTitle: string;

@@ -1,4 +1,4 @@
-import ToDoList from "../toDoComponent/todo-list.class";
+import ToDoList from "../toDoComponent/todo-list.interface";
 import ToDoItem from "../toDoComponent/todo.class";
 
 const toDoData = [new ToDoItem("Some Item", false), new ToDoItem("Do Dishes", true), new ToDoItem("Yard Work", false), new ToDoItem("Make dinner", false)];
