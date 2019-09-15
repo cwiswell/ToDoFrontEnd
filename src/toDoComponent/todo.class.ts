@@ -1,3 +1,4 @@
-export default class ToDoItem{
-    constructor(public text: string, public checked: boolean){ }
+export default interface ToDoItem{
+    text: string;
+    checked: boolean;
 }
