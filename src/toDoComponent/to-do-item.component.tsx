@@ -2,7 +2,7 @@ import React, { useState, Fragment } from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
-import ToDoItem from './todo.class';
+import ToDoItem from './todo.interface';
 
 type ToDoCheckItemProps = {
     data: ToDoItem;
