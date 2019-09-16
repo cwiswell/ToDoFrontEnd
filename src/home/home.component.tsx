@@ -65,12 +65,11 @@ const Home: React.FC<IHomeProps> = (props) => {
             <CardHeader title="Active To Do Lists">
             </CardHeader>
             <CardContent>
-              <Typography>
-                to do list 1
-                </Typography>
-              <Typography>
-                to do list 2
-                </Typography>
+            {activeToDoLists == null ? 
+                (<Typography>No Active To Do Lists</Typography>): 
+                activeToDoLists.map((item, key) => (
+                    <Typography key={key}>{item.title}</Typography>
+                ))}
             </CardContent>
           </Card>
         </Grid>
