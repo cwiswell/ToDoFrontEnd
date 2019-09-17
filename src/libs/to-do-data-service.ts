@@ -8,7 +8,8 @@ const prevToDoList: ToDoList = { title: "Sunday To Do List", toDoItems: prevToDo
 
 export function GetActiveToDos(): Promise<ToDoList[] | null> {
     return new Promise<ToDoList[] | null>((resolve, reject) => {
-        resolve([toDoList, {title: "Other list", toDoItems: toDoData},{title: "Weekly To Dos", toDoItems: toDoData}]);
+        let data: ToDoList[] = [toDoList, {title: "Other list", toDoItems: toDoData},{title: "Weekly To Dos", toDoItems: toDoData}];
+        resolve(data);
     });
 }
 export function GetToDo(id: number): Promise<ToDoList | null> {
