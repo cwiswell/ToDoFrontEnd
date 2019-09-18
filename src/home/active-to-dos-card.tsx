@@ -31,7 +31,7 @@ const ActiveToDosCard: React.FC = () => {
                         (<Typography>No Active To Do Lists</Typography>) :
                         activeToDoLists.map((item, key) => (
                             <Typography key={key}>
-                               <IconButton><EditIcon /></IconButton> {item.title}
+                               <IconButton><EditIcon /></IconButton> {item.title} ({item.toDoItems.filter(x=>!x.checked).length})
                             </Typography>
                         ))}
                 </CardContent>
