@@ -5,6 +5,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import ToDoList from '../toDoComponent/todo-list.interface';
 import { GetActiveToDos } from '../libs/to-do-data-service';
+import { IconButton } from '@material-ui/core';
+import EditIcon from '@material-ui/icons/Edit';
 
 const ActiveToDosCard: React.FC = () => {
     const [activeToDoLists, setActiveToDoListsTest] = useState<ToDoList[] | null>([{ title: "Other list", toDoItems: [] }, { title: "Weekly To Dos", toDoItems: [] }]);
@@ -28,7 +30,9 @@ const ActiveToDosCard: React.FC = () => {
                     {activeToDoLists == null ?
                         (<Typography>No Active To Do Lists</Typography>) :
                         activeToDoLists.map((item, key) => (
-                            <Typography key={key}>{item.title}</Typography>
+                            <Typography key={key}>
+                               <IconButton><EditIcon /></IconButton> {item.title}
+                            </Typography>
                         ))}
                 </CardContent>
             </Card>
