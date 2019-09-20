@@ -9,7 +9,7 @@ import { IconButton } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 
 const ActiveToDosCard: React.FC = () => {
-    const [activeToDoLists, setActiveToDoListsTest] = useState<ToDoList[] | null>([{ title: "Other list", toDoItems: [] }, { title: "Weekly To Dos", toDoItems: [] }]);
+    const [activeToDoLists, setActiveToDoListsTest] = useState<ToDoList[] | null>(null);
 
     const loadData = () => {
         GetActiveToDos().then((data) => {
