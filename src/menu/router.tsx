@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Home from '../home/home.component';
 import PageNotFound from '../pageNotFound/page-not-found.component';
+import ToDoForm from '../toDoComponent/to-do-form.component';
 
 
 const Router = () => {
@@ -10,6 +11,7 @@ const Router = () => {
         <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/home" component={Home} />
+            <Route path="/todo/edit/:id?" component={ToDoForm} />
             <Route component={PageNotFound} />
         </Switch>
     )
