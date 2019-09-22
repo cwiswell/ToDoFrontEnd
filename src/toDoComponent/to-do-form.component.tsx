@@ -1,6 +1,7 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Paper, Typography } from '@material-ui/core';
 import { GetToDo } from '../libs/to-do-data-service';
+import ToDoList from './todo-list.interface';
 
 type TParams = { id?: number }
 
@@ -16,13 +17,12 @@ type ToDoFormProps = {
 }
 
 const ToDoForm: React.FC<ToDoFormProps> = (props) => {
+    const [data, setData] = useState<ToDoList | null>(null);
     const title = props.match.params.id === undefined ? "Add To Do List" : `Edit To Do List ${props.match.params.id}`;
-
+    
     if(props.match.params.id !== undefined){
         GetToDo(props.match.params.id).then((data)=>{
-            if(data == null){
-                
-            }
+            setData(data);
         });
     }
 
