@@ -1,12 +1,28 @@
 import React, { Fragment } from 'react';
 import { Paper, Typography } from '@material-ui/core';
 
-const ToDoForm: React.FC = () => {
+type TParams = { id?: number }
+
+type TMatch = {
+    params: TParams;
+    path: string;
+    url: string;
+    isExact: boolean;
+}
+
+type ToDoFormProps = {
+    match?: TMatch;
+}
+
+const ToDoForm: React.FC<ToDoFormProps> = (props) => {
+    console.log(props);
+    const title = props.match === undefined ? "Add To Do List" : `Edit To Do List ${props.match.params.id}`;
+
     return (
         <Fragment>
             <Paper>
                 <Typography variant="h5" component="h3">
-                    Edit To Do List
+                    {title}
                 </Typography>
             </Paper>
         </Fragment>
