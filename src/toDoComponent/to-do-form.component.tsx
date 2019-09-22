@@ -11,12 +11,12 @@ type TMatch = {
 }
 
 type ToDoFormProps = {
-    match?: TMatch;
+    match: TMatch;
 }
 
 const ToDoForm: React.FC<ToDoFormProps> = (props) => {
     console.log(props);
-    const title = props.match === undefined ? "Add To Do List" : `Edit To Do List ${props.match.params.id}`;
+    const title = props.match.params.id === undefined ? "Add To Do List" : `Edit To Do List ${props.match.params.id}`;
 
     return (
         <Fragment>
