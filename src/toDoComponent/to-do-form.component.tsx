@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Paper, Typography } from '@material-ui/core';
+import { GetToDo } from '../libs/to-do-data-service';
 
 type TParams = { id?: number }
 
@@ -15,8 +16,15 @@ type ToDoFormProps = {
 }
 
 const ToDoForm: React.FC<ToDoFormProps> = (props) => {
-    console.log(props);
     const title = props.match.params.id === undefined ? "Add To Do List" : `Edit To Do List ${props.match.params.id}`;
+
+    if(props.match.params.id !== undefined){
+        GetToDo(props.match.params.id).then((data)=>{
+            if(data == null){
+                
+            }
+        });
+    }
 
     return (
         <Fragment>
