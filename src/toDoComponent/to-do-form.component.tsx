@@ -18,7 +18,9 @@ type ToDoFormProps = {
 
 const ToDoForm: React.FC<ToDoFormProps> = (props) => {
     const [data, setData] = useState<ToDoList | null>(null);
-    const title = props.match.params.id === undefined ? "Add To Do List" : `Edit To Do List ${props.match.params.id}`;
+    
+    const id = props.match.params.id;
+    const title = id === undefined ? "Add To Do List" : `Edit To Do List ${id}`;
     
     if(props.match.params.id !== undefined){
         GetToDo(props.match.params.id).then((data)=>{
@@ -26,12 +28,17 @@ const ToDoForm: React.FC<ToDoFormProps> = (props) => {
         });
     }
 
+    const body = data == null && id !== undefined ? 
+        (<Typography> No to do list with id</Typography>):
+        (<Typography> Data goes here</Typography>)
+
     return (
         <Fragment>
             <Paper>
                 <Typography variant="h5" component="h3">
                     {title}
                 </Typography>
+                {body}
             </Paper>
         </Fragment>
     );
