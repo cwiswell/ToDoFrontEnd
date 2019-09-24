@@ -35,7 +35,7 @@ const ToDoForm: React.FC<ToDoFormProps> = (props) => {
     return (
         <Fragment>
             <Paper style={{padding:'10px'}}>
-                <Typography variant="h5" component="h3">
+                <Typography variant="h5" component="h3" style={{textAlign: 'center'}}>
                     {title}
                 </Typography>
                 {body}
