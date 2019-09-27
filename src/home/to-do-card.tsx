@@ -6,9 +6,14 @@ import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
 import ToDo from '../toDoComponent/to-do.component';
-import IToDoCard from './to-do-card-props.interface';
 import ToDoList from '../interfaces/todo-list';
 import { Typography } from '@material-ui/core';
+
+type IToDoCard = {
+    cardTitle: string;
+    toDoList: ToDoList | null;
+    checkEnable: boolean | null;
+}
 
 const ToDoCard: React.FC<IToDoCard> = (props) => {
 
