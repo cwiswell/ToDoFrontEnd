@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import Card from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import IHomeProps from './homeProps.interface';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import Grid from '@material-ui/core/Grid';
@@ -23,6 +22,10 @@ const styles = (theme: any) => ({
     padding: theme.spacing(2),
   },
 });
+
+type IHomeProps = {
+  classes: any
+};
 
 const Home: React.FC<IHomeProps> = (props) => {
   const [currentToDoList, setCurrentToDoList] = useState<ToDoList | null>(null);
