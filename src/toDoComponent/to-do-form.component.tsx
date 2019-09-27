@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { Paper, Typography } from '@material-ui/core';
 import { GetToDo } from '../libs/to-do-data-service';
-import ToDoList from './todo-list.interface';
+import ToDoList from '../interfaces/todo-list';
 
 type TParams = { id?: number }
 

@@ -3,7 +3,7 @@ import Card from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
-import ToDoList from '../toDoComponent/todo-list.interface';
+import ToDoList from '../interfaces/todo-list';
 import { GetActiveToDos } from '../libs/to-do-data-service';
 import { IconButton } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';

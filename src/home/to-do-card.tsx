@@ -7,7 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
 import ToDo from '../toDoComponent/to-do.component';
 import IToDoCard from './to-do-card-props.interface';
-import ToDoList from '../toDoComponent/todo-list.interface';
+import ToDoList from '../interfaces/todo-list';
 import { Typography } from '@material-ui/core';
 
 const ToDoCard: React.FC<IToDoCard> = (props) => {

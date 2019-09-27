@@ -1,4 +1,4 @@
-import ToDoItem from "./todo.interface";
+import ToDoItem from "./todo";
 
 export default interface ToDoList{
     id: number;

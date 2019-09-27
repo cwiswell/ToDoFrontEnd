@@ -1,5 +1,5 @@
-import ToDoList from "../toDoComponent/todo-list.interface";
-import ToDoItem from "../toDoComponent/todo.interface";
+import ToDoList from "../interfaces/todo-list";
+import ToDoItem from "../interfaces/todo";
 
 const toDoData: ToDoItem[] = [{text:"Some Item",checked: false}, {text: "Do Dishes", checked: true}, {text: "Yard Work",checked: false}, {text: "Make dinner", checked: false}];
 const prevToDoData: ToDoItem[] = [{text:"Stuff",checked: true}, {text: "Cat litter", checked: true}, {text: "Dishes",checked: true}, {text: "Make dinner", checked: true}, {text: "Laundry", checked: true}];

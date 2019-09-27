@@ -1,4 +1,4 @@
-import ToDoList from "./todo-list.interface";
+import ToDoList from "../interfaces/todo-list";
 
 export default interface ITodoProps{
     data: ToDoList;
