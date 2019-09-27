@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Home from '../home/home.component';
+import Home from '../home/home';
 import PageNotFound from '../pageNotFound/page-not-found.component';
 import ToDoForm from '../toDoComponent/to-do-form.component';
 
