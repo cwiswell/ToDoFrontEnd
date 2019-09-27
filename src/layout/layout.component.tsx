@@ -10,7 +10,6 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import clsx from 'clsx';
 
-import ILayoutProps from './layoutProps.interface';
 import Router from '../menu/router';
 import Menu from '../menu/menu.component';
 import { BrowserRouter } from 'react-router-dom';
@@ -90,6 +89,10 @@ const styles = (theme: any) => ({
     padding: '0 8px',
   }
 });
+
+type ILayoutProps = {
+  classes: any
+};
 
 const Dashboard: React.FC<ILayoutProps> = (props) => {
   const [open, setOpen] = useState<boolean>(false);
