@@ -11,7 +11,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import clsx from 'clsx';
 
 import Router from '../menu/router';
-import Menu from '../menu/menu.component';
+import Menu from '../menu/menu';
 import { BrowserRouter } from 'react-router-dom';
 
 const drawerWidth = 240;
