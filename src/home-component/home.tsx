@@ -5,7 +5,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import Grid from '@material-ui/core/Grid';
 import ToDoList from '../interfaces/todo-list';
-import ToDoCard from './to-do-card';
+import ToDoCard from '../to-do-components/to-do-card';
 import ActiveToDosCard from './active-to-dos-card';
 import { GetMostRecentActiveToDo, GetRecentlyClosedToDo } from '../libs/to-do-data-service';
 import { withStyles } from '@material-ui/styles';
