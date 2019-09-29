@@ -4,7 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import './App.css';
 import 'typeface-roboto';
 
-import Layout from './layout/layout.component';
+import Layout from './layout/layout';
 
 const theme = createMuiTheme({
   palette: {
