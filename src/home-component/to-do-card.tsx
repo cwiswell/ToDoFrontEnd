@@ -5,7 +5,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
-import ToDo from '../toDoComponent/to-do.component';
+import ToDo from '../toDoComponent/to-do';
 import ToDoList from '../interfaces/todo-list';
 import { Typography } from '@material-ui/core';
 
