@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import List from '@material-ui/core/List';
 
-import ToDoCheckItem from './to-do-item.component';
+import ToDoCheckItem from './to-do-item';
 import ToDoList from '../interfaces/todo-list';
 
 type IToDoProps = {
