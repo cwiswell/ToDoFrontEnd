@@ -3,6 +3,7 @@ import { Paper, Typography, Button } from '@material-ui/core';
 import { GetToDo } from '../libs/to-do-data-service';
 import ToDoList from '../interfaces/todo-list';
 import AddIcon from '@material-ui/icons/Add';
+import ToDoFormBody from './to-do-form-body';
 
 type TParams = { id?: number }
 
@@ -31,7 +32,7 @@ const ToDoForm: React.FC<ToDoFormProps> = (props) => {
 
     const body = data == null && id !== undefined ?
         (<Typography> No to do list with id</Typography>) :
-        (<Typography> Data goes here</Typography>);
+        (<ToDoFormBody data={data as ToDoList}/>);
 
     const addItem = () => {
         console.log("add Item");
