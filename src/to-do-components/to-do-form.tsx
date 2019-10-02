@@ -27,6 +27,7 @@ const ToDoForm: React.FC<ToDoFormProps> = (props) => {
     if (props.match.params.id !== undefined) {
         GetToDo(props.match.params.id).then((data) => {
             setData(data);
+            console.log(data);
         });
     }
 

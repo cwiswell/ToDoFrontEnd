@@ -14,7 +14,7 @@ export function GetActiveToDos(): Promise<ToDoList[] | null> {
 }
 export function GetToDo(id: number): Promise<ToDoList | null> {
     return new Promise<ToDoList | null>((resolve, reject) => {
-        resolve(null);
+        resolve(toDoList);
     });
 }
 export function GetRecentlyClosedToDo(): Promise<ToDoList | null> {
