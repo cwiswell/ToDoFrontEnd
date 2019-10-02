@@ -48,12 +48,14 @@ const ToDoForm: React.FC<ToDoFormProps> = (props) => {
                 <Typography variant="h5" component="h3" style={{ textAlign: 'center' }}>
                     {title}
                 </Typography>
-                {toDoTitle}
-                <Divider variant="middle" style={{margin: '20px 0'}} />
-                {body}
-                <Button variant="contained" color="primary" onClick={addItem} >
-                    Add Item <AddIcon />
-                </Button>
+                <form>
+                    {toDoTitle}
+                    <Divider variant="middle" style={{margin: '20px 0'}} />
+                    {body}
+                    <Button variant="contained" color="primary" onClick={addItem} >
+                        Add Item <AddIcon />
+                    </Button>
+                </form>
             </Paper>
         </Fragment>
     );
