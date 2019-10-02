@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Paper, Typography, Button } from '@material-ui/core';
+import { Paper, Typography, Button, Input, Divider } from '@material-ui/core';
 import { GetToDo } from '../libs/to-do-data-service';
 import ToDoList from '../interfaces/todo-list';
 import AddIcon from '@material-ui/icons/Add';
@@ -27,9 +27,12 @@ const ToDoForm: React.FC<ToDoFormProps> = (props) => {
     if (props.match.params.id !== undefined) {
         GetToDo(props.match.params.id).then((data) => {
             setData(data);
-            console.log(data);
         });
     }
+
+    const toDoTitle = data === null || data === undefined ?
+    (<Input defaultValue="To Do Title"  inputProps={{'aria-label': 'to do title',}}/>):
+    (<Input value={data.title} defaultValue="To Do Tite"  inputProps={{'aria-label': 'to do title',}}/>);
 
     const body = data == null && id !== undefined ?
         (<Typography> No to do list with id</Typography>) :
@@ -45,6 +48,8 @@ const ToDoForm: React.FC<ToDoFormProps> = (props) => {
                 <Typography variant="h5" component="h3" style={{ textAlign: 'center' }}>
                     {title}
                 </Typography>
+                {toDoTitle}
+                <Divider variant="middle" style={{margin: '20px 0'}} />
                 {body}
                 <Button variant="contained" color="primary" onClick={addItem} >
                     Add Item <AddIcon />
