@@ -1,17 +1,21 @@
-import React, { Fragment } from 'react';
-import ToDoList from '../interfaces/todo-list';
+import React, { Fragment, useEffect, useState } from 'react';
 import { Typography, Input } from '@material-ui/core';
+import ToDoItem from '../interfaces/todo';
 
 type ToDoFormItemProps = {
-    data: ToDoList;
+    data: ToDoItem[] | null;
 }
 
 const ToDoFormBody: React.FC<ToDoFormItemProps> = (props) => {
-    const data = props.data;
+    const [data, setData] = useState<ToDoItem[] | null>(null);
 
-    const body = data === null || data === undefined || data.toDoItems === undefined || data.toDoItems === null ? 
+    useEffect(() => {
+        setData(props.data);
+    }, [props.data])
+    
+    const body = data === null || data === undefined  ? 
         (<Typography> No data</Typography>) : 
-        data.toDoItems.map((item, key) => (
+        data.map((item, key) => (
             <Input key={key} 
                 value={item.text} 
                 defaultValue="To Do Item" 
