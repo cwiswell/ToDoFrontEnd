@@ -34,9 +34,9 @@ const ToDoForm: React.FC<ToDoFormProps> = (props) => {
     (<Input defaultValue="To Do Title"  inputProps={{'aria-label': 'to do title',}}/>):
     (<Input value={data.title} defaultValue="To Do Tite"  inputProps={{'aria-label': 'to do title',}}/>);
 
-    const body = data == null && id !== undefined ?
+    const body = data === null && id !== undefined ?
         (<Typography> No to do list with id</Typography>) :
-        (<ToDoFormBody data={data as ToDoList}/>);
+        (<ToDoFormBody data={data == null ? null : data.toDoItems}/>);
 
     const addItem = () => {
         console.log("add Item");
