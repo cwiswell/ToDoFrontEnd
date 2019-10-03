@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { Input, Grid, Checkbox } from '@material-ui/core';
+import { Input, Grid, Checkbox, IconButton } from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
 import ToDoItem from '../interfaces/todo';
 
 type ToDoFormItemProps = {
@@ -39,7 +40,8 @@ const ToDoFormBodyItem: React.FC<ToDoFormItemProps> = (props) => {
                         inputProps={{ 'aria-label': 'to do item', }}
                         style={{ width: '100%' }} />
                 </Grid>
-                <Grid item xs>
+                <Grid item xs={1} style={{textAlign: 'center'}}>
+                    <IconButton><DeleteIcon/></IconButton>
                 </Grid>
             </Grid>
         </Fragment>
