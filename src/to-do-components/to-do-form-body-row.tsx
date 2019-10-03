@@ -7,25 +7,34 @@ type ToDoFormItemProps = {
 }
 
 const ToDoFormBodyItem: React.FC<ToDoFormItemProps> = (props) => {
-    const [data, setData] = useState<ToDoItem | null>(null);
+    const [checked, setChecked] = useState<boolean>(false);
+    const [text, setText] = useState<string>('');
 
     useEffect(() => {
-        setData(props.data);
+        if(props.data !== null){
+            setChecked(props.data.checked);
+            setText(props.data.text);
+        }
     }, [props.data])
+
+    const onTextChange = (e: React.FormEvent<HTMLTextAreaElement|HTMLInputElement>) =>{
+        setText(e.currentTarget.value);
+    }
 
     return (
         <Fragment>
             <Grid container spacing={1}>
                 <Grid item xs={1} style={{textAlign: 'center'}}>
                     <Checkbox
-                        checked={data == null ? false : data.checked}
+                        checked={checked}
                         tabIndex={-1}
                         disableRipple
                     />
                 </Grid>
                 <Grid item xs>
                     <Input
-                        value={data == null ? null : data.text}
+                        value={text}
+                        onChange={onTextChange}
                         defaultValue="To Do Item"
                         inputProps={{ 'aria-label': 'to do item', }}
                         style={{ width: '100%' }} />
