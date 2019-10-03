@@ -15,8 +15,8 @@ const ToDoFormBodyItem: React.FC<ToDoFormItemProps> = (props) => {
 
     return (
         <Fragment>
-            <Grid container spacing={3}>
-                <Grid item xs>
+            <Grid container spacing={1}>
+                <Grid item xs={1} style={{textAlign: 'center'}}>
                     <Checkbox
                         checked={data == null ? false : data.checked}
                         tabIndex={-1}
