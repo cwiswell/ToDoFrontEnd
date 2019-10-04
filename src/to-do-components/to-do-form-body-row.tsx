@@ -5,6 +5,7 @@ import ToDoItem from '../interfaces/todo';
 
 type ToDoFormItemProps = {
     data: ToDoItem | null;
+    deleteFunction: (index : number) => void;
 }
 
 const ToDoFormBodyItem: React.FC<ToDoFormItemProps> = (props) => {

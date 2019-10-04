@@ -14,10 +14,14 @@ const ToDoFormBody: React.FC<ToDoFormItemProps> = (props) => {
         setData(props.data);
     }, [props.data])
     
+    const removeRow = (index: number) =>{
+
+    }
+
     const body = data === null || data === undefined  ? 
         (<Typography> No data</Typography>) : 
         data.map((item, key) => (
-            <ToDoFormBodyItem data={item} key={key} />));
+            <ToDoFormBodyItem data={item} key={key} deleteFunction={removeRow} />));
 
     return (
         <Fragment>
