@@ -5,12 +5,12 @@ import ToDoItem from '../interfaces/todo';
 
 type ToDoFormItemProps = {
     data: ToDoItem | null;
-    deleteFunction: (index : number) => void;
+    deleteFunction: () => void;
 }
 
 const ToDoFormBodyItem: React.FC<ToDoFormItemProps> = (props) => {
     const [checked, setChecked] = useState<boolean>(false);
-    const [text, setText] = useState<string>('');
+    const [text, setText] = useState<string>(' ');
 
     useEffect(() => {
         if(props.data !== null){
@@ -37,12 +37,11 @@ const ToDoFormBodyItem: React.FC<ToDoFormItemProps> = (props) => {
                     <Input
                         value={text}
                         onChange={onTextChange}
-                        defaultValue="To Do Item"
                         inputProps={{ 'aria-label': 'to do item', }}
                         style={{ width: '100%' }} />
                 </Grid>
                 <Grid item xs={1} style={{textAlign: 'center'}}>
-                    <IconButton><DeleteIcon/></IconButton>
+                    <IconButton onClick={props.deleteFunction}><DeleteIcon/></IconButton>
                 </Grid>
             </Grid>
         </Fragment>

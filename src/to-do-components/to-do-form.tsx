@@ -19,7 +19,7 @@ type ToDoFormProps = {
 }
 
 const ToDoForm: React.FC<ToDoFormProps> = (props) => {
-    const [data, setData] = useState<ToDoList | null>({} as ToDoList);
+    const [data, setData] = useState<ToDoList | null>({title: ''} as ToDoList);
 
     const id = props.match.params.id;
     const title = id === undefined ? "Add To Do List" : `Edit To Do List ${id}`;
@@ -32,7 +32,7 @@ const ToDoForm: React.FC<ToDoFormProps> = (props) => {
 
     const toDoTitle = data === null || data === undefined ?
     (<Input defaultValue="To Do Title"  inputProps={{'aria-label': 'to do title',}}/>):
-    (<Input value={data.title} defaultValue="To Do Tite"  inputProps={{'aria-label': 'to do title',}}/>);
+    (<Input value={data.title}  inputProps={{'aria-label': 'to do title',}}/>);
 
     const body = data === null && id !== undefined ?
         (<Typography> No to do list with id</Typography>) :
