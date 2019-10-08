@@ -39,7 +39,7 @@ const ToDoForm: React.FC<ToDoFormProps> = (props) => {
         (<ToDoFormBody data={data == null ? null : data.toDoItems}/>);
 
     const addItem = () => {
-        console.log("add Item");
+        
     };
 
     return (
@@ -56,6 +56,12 @@ const ToDoForm: React.FC<ToDoFormProps> = (props) => {
                     </Button>
                     <Divider variant="middle" style={{margin: '20px 0'}} />
                     {body}
+                    <Divider variant="middle" style={{margin: '20px 0'}} />
+
+                    <Button variant="contained" color="primary"  >
+                        Save
+                    </Button>
+
                 </form>
             </Paper>
         </Fragment>
