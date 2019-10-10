@@ -42,6 +42,10 @@ const ToDoForm: React.FC<ToDoFormProps> = (props) => {
         
     };
 
+    const saveChanges = () => {
+
+    };
+
     return (
         <Fragment>
             <Paper style={{ padding: '10px', maxWidth: '800px' }}>
@@ -58,7 +62,7 @@ const ToDoForm: React.FC<ToDoFormProps> = (props) => {
                     {body}
                     <Divider variant="middle" style={{margin: '20px 0'}} />
 
-                    <Button variant="contained" color="primary"  >
+                    <Button variant="contained" color="primary" onClick={saveChanges} >
                         Save
                     </Button>
 
