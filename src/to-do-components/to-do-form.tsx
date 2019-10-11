@@ -4,6 +4,7 @@ import { GetToDo } from '../libs/to-do-data-service';
 import ToDoList from '../interfaces/todo-list';
 import AddIcon from '@material-ui/icons/Add';
 import ToDoFormBody from './to-do-form-body';
+import ToDoItem from '../interfaces/todo';
 
 type TParams = { id?: number }
 
@@ -40,7 +41,16 @@ const ToDoForm: React.FC<ToDoFormProps> = (props) => {
         (<ToDoFormBody data={data == null ? null : data.toDoItems} />);
 
     const addItem = () => {
-
+        let newData = data;
+        if(newData == null){
+            newData = {} as ToDoList;
+        }else if(newData.toDoItems == null){
+            newData.toDoItems = []; 
+        }
+        let newToDoItem = { text: newText, checked: false } as ToDoItem;
+        newData.toDoItems.push(newToDoItem);
+        setData({...newData});
+        setNewText('');
     };
 
     const saveChanges = () => {
