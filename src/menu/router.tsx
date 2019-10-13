@@ -11,7 +11,8 @@ const Router = () => {
         <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/home" component={Home} />
-            <Route path="/todo/edit/:id?" component={ToDoForm} />
+            <Route path="/todo/edit/:id" component={ToDoForm} />
+            <Route path="/todo/create/" component={ToDoForm} />
             <Route component={PageNotFound} />
         </Switch>
     )
