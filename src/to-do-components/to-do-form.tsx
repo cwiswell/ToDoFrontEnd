@@ -32,9 +32,27 @@ const ToDoForm: React.FC<ToDoFormProps> = (props) => {
         });
     }
 
+    const saveChanges = () => {
+
+    };
+
+    const onTitleChange = (e: React.FormEvent<HTMLTextAreaElement|HTMLInputElement>) =>{
+        let newData = data;
+        if(newData === null || newData === undefined){
+            newData = {} as ToDoList;
+        }
+        newData.title = e.currentTarget.value;
+        setData({...newData});
+    }
+
+    const onTextChange = (e: React.FormEvent<HTMLTextAreaElement|HTMLInputElement>) => {
+        setNewText(e.currentTarget.value);
+    };
+
+
     const toDoTitle = data === null || data === undefined ?
-        (<Input defaultValue="To Do Title" inputProps={{ 'aria-label': 'to do title', }} />) :
-        (<Input value={data.title} inputProps={{ 'aria-label': 'to do title', }} />);
+        (<Input defaultValue="To Do Title" inputProps={{ 'aria-label': 'to do title', }} onChange={onTitleChange} />) :
+        (<Input value={data.title} inputProps={{ 'aria-label': 'to do title', }} onChange={onTitleChange} />);
 
     const body = data === null && id !== undefined ?
         (<Typography> No to do list with id</Typography>) :
@@ -51,14 +69,6 @@ const ToDoForm: React.FC<ToDoFormProps> = (props) => {
         newData.toDoItems.push(newToDoItem);
         setData({...newData});
         setNewText('');
-    };
-
-    const saveChanges = () => {
-
-    };
-
-    const onTextChange = (e: React.FormEvent<HTMLTextAreaElement|HTMLInputElement>) => {
-        setNewText(e.currentTarget.value);
     };
 
     return (
