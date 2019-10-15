@@ -95,8 +95,6 @@ const ToDoForm: React.FC<ToDoFormProps> = (props) => {
                         </Grid>
                     </Grid>
 
-
-
                     <Divider variant="middle" style={{ margin: '20px 0' }} />
                     {body}
                     <Divider variant="middle" style={{ margin: '20px 0' }} />
