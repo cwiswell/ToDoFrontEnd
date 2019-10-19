@@ -57,7 +57,7 @@ const Home: React.FC<IHomeProps> = (props) => {
           </Card>
         </Grid>
         <Grid item md={4}>
-          <ToDoCard cardTitle="Recent To Do Lost" toDoList={currentToDoList} checkEnable={true} />
+          <ToDoCard cardTitle="Recent To Do List" toDoList={currentToDoList} checkEnable={true} />
         </Grid>
         <Grid item md={4}>
           <ActiveToDosCard />
