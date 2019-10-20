@@ -44,7 +44,7 @@ const Home: React.FC<IHomeProps> = (props) => {
   return (
     <Fragment>
       <Grid container className={classes.root} spacing={2}>
-        <Grid item md={12}>
+        {/* <Grid item md={12}>
           <Card >
             <CardHeader title="Some Graph of history">
             </CardHeader>
@@ -55,7 +55,7 @@ const Home: React.FC<IHomeProps> = (props) => {
                 </Typography>
             </CardContent>
           </Card>
-        </Grid>
+        </Grid> */}
         <Grid item md={4}>
           <ToDoCard cardTitle="Recent To Do List" toDoList={currentToDoList} checkEnable={true} />
         </Grid>
