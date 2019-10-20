@@ -12,19 +12,19 @@ const ToDoFormBody: React.FC<ToDoFormItemProps> = (props) => {
 
     useEffect(() => {
         setData(props.data);
-    }, [props.data])
-    
+    }, [props.data]);
+
     const removeRow = (index: number) => {
-        if(data == null)
+        if (data == null)
             return;
 
         let tempData = data;
-        tempData.splice(index,1);
+        tempData.splice(index, 1);
         setData([...tempData]);
     };
 
-    const body = data === null || data === undefined  ? 
-        (<Typography> No data</Typography>) : 
+    const body = data === null || data === undefined ?
+        (<Typography> No data</Typography>) :
         data.map((item, key) => (
             <ToDoFormBodyItem data={item} key={key} deleteFunction={() => removeRow(key)} />));
 
