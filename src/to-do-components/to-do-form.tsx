@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Paper, Typography, Button, Input, Divider, Grid } from '@material-ui/core';
 import { GetToDo } from '../libs/to-do-data-service';
 import ToDoList from '../interfaces/todo-list';
@@ -26,26 +26,32 @@ const ToDoForm: React.FC<ToDoFormProps> = (props) => {
     const id = props.match.params.id;
     const title = id === undefined ? "Add To Do List" : `Edit To Do List ${id}`;
 
-    if (props.match.params.id !== undefined) {
-        GetToDo(props.match.params.id).then((data) => {
-            setData(data);
-        });
-    }
+    const loadData = () => {
+        if (props.match.params.id !== undefined) {
+            GetToDo(props.match.params.id).then((data) => {
+                setData(data);
+            });
+        }
+    };
+
+    useEffect(() => {
+        loadData();
+    });
 
     const saveChanges = () => {
 
     };
 
-    const onTitleChange = (e: React.FormEvent<HTMLTextAreaElement|HTMLInputElement>) =>{
+    const onTitleChange = (e: React.FormEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         let newData = data;
-        if(newData === null || newData === undefined){
+        if (newData === null || newData === undefined) {
             newData = {} as ToDoList;
         }
         newData.title = e.currentTarget.value;
-        setData({...newData});
+        setData({ ...newData });
     }
 
-    const onTextChange = (e: React.FormEvent<HTMLTextAreaElement|HTMLInputElement>) => {
+    const onTextChange = (e: React.FormEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         setNewText(e.currentTarget.value);
     };
 
@@ -60,14 +66,14 @@ const ToDoForm: React.FC<ToDoFormProps> = (props) => {
 
     const addItem = () => {
         let newData = data;
-        if(newData == null){
+        if (newData == null) {
             newData = {} as ToDoList;
-        }else if(newData.toDoItems == null){
-            newData.toDoItems = []; 
+        } else if (newData.toDoItems == null) {
+            newData.toDoItems = [];
         }
         let newToDoItem = { text: newText, checked: false } as ToDoItem;
         newData.toDoItems.push(newToDoItem);
-        setData({...newData});
+        setData({ ...newData });
         setNewText('');
     };
 

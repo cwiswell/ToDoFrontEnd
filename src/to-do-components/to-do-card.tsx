@@ -8,26 +8,19 @@ import EditIcon from '@material-ui/icons/Edit';
 import ToDo from './to-do';
 import ToDoList from '../interfaces/todo-list';
 import { Typography } from '@material-ui/core';
-import { withRouter, RouteComponentProps } from "react-router";
 
-type IToDoCard = RouteComponentProps & {
+type IToDoCard =  {
     cardTitle: string;
     toDoList: ToDoList | null;
-    checkEnable: boolean | null;
+    checkEnable: boolean | null;    
+    editFunction: (id: number) => void;
 }
 
 const ToDoCard: React.FC<IToDoCard> = (props) => {
 
-    const editToDoList = (id: number) =>{
-        if(id === -1){
-            return;
-        }
-        props.history.push(`/todo/edit/${id}`);
-    }
-
     const editAction = props.checkEnable && props.toDoList !== null ? 
         ( <CardActions disableSpacing>
-            <IconButton aria-label="edit to do list" onClick={() => {editToDoList(props.toDoList === null ? -1 : props.toDoList.id)}}>
+            <IconButton aria-label="edit to do list" onClick={() => {props.editFunction(props.toDoList === null ? -1 : props.toDoList.id)}}>
                 <EditIcon />
             </IconButton>
         </CardActions>) :
@@ -50,4 +43,4 @@ const ToDoCard: React.FC<IToDoCard> = (props) => {
     );
 }
 
-export default withRouter(ToDoCard);
+export default ToDoCard;

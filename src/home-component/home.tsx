@@ -1,14 +1,15 @@
 import React, { Fragment, useState } from 'react';
-import Card from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
+// import Card from '@material-ui/core/Paper';
+// import Typography from '@material-ui/core/Typography';
+// import CardContent from '@material-ui/core/CardContent';
+// import CardHeader from '@material-ui/core/CardHeader';
 import Grid from '@material-ui/core/Grid';
 import ToDoList from '../interfaces/todo-list';
 import ToDoCard from '../to-do-components/to-do-card';
 import ActiveToDosCard from './active-to-dos-card';
 import { GetMostRecentActiveToDo, GetRecentlyClosedToDo } from '../libs/to-do-data-service';
 import { withStyles } from '@material-ui/styles';
+import { RouteComponentProps, withRouter } from 'react-router';
 
 const styles = (theme: any) => ({
   root: {
@@ -23,13 +24,21 @@ const styles = (theme: any) => ({
   },
 });
 
-type IHomeProps = {
+type IHomeProps = RouteComponentProps & {
   classes: any
 };
 
 const Home: React.FC<IHomeProps> = (props) => {
   const [currentToDoList, setCurrentToDoList] = useState<ToDoList | null>(null);
   const [recentlyClosed, setRecentlyClosed] = useState<ToDoList | null>(null);
+
+  
+  const editToDoList = (id: number) =>{
+    if(id === -1){
+        return;
+    }
+    props.history.push(`/todo/edit/${id}`);
+  }
 
   GetMostRecentActiveToDo().then((data) => {
     setCurrentToDoList(data);
@@ -57,13 +66,13 @@ const Home: React.FC<IHomeProps> = (props) => {
           </Card>
         </Grid> */}
         <Grid item md={4}>
-          <ToDoCard cardTitle="Recent To Do List" toDoList={currentToDoList} checkEnable={true} />
+          <ToDoCard cardTitle="Recent To Do List" toDoList={currentToDoList} checkEnable={true} editFunction={editToDoList} />
         </Grid>
         <Grid item md={4}>
-          <ActiveToDosCard editFunction={()=>{}} />
+          <ActiveToDosCard editFunction={editToDoList} />
         </Grid>
         <Grid item md={4}>
-          <ToDoCard cardTitle="Recently Closed" toDoList={recentlyClosed} checkEnable={false} />
+          <ToDoCard cardTitle="Recently Closed" toDoList={recentlyClosed} checkEnable={false} editFunction={editToDoList}/>
         </Grid>
       </Grid>
 
@@ -71,4 +80,4 @@ const Home: React.FC<IHomeProps> = (props) => {
   );
 }
 
-export default withStyles(styles as any)(Home);
+export default withStyles(styles as any)(withRouter(Home));
