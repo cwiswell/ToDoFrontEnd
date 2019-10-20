@@ -8,7 +8,12 @@ import { GetActiveToDos } from '../libs/to-do-data-service';
 import { IconButton } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 
-const ActiveToDosCard: React.FC = () => {
+type ActiveToDoCardProps= {
+    editFunction: (id: number) => void;
+}
+
+
+const ActiveToDosCard: React.FC<ActiveToDoCardProps> = (props) => {
     const [activeToDoLists, setActiveToDoListsTest] = useState<ToDoList[] | null>(null);
 
     const loadData = () => {
@@ -31,7 +36,7 @@ const ActiveToDosCard: React.FC = () => {
                         (<Typography>No Active To Do Lists</Typography>) :
                         activeToDoLists.map((item, key) => (
                             <Typography key={key}>
-                               <IconButton><EditIcon /></IconButton> {item.title} ({item.toDoItems.filter(x=>!x.checked).length})
+                               <IconButton onClick={() => {props.editFunction(item.id)}}><EditIcon /></IconButton> {item.title} ({item.toDoItems.filter(x=>!x.checked).length})
                             </Typography>
                         ))}
                 </CardContent>
