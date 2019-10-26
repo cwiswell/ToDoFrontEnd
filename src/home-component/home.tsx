@@ -1,8 +1,4 @@
 import React, { Fragment, useState } from 'react';
-// import Card from '@material-ui/core/Paper';
-// import Typography from '@material-ui/core/Typography';
-// import CardContent from '@material-ui/core/CardContent';
-// import CardHeader from '@material-ui/core/CardHeader';
 import Grid from '@material-ui/core/Grid';
 import ToDoList from '../interfaces/todo-list';
 import ToDoCard from '../to-do-components/to-do-card';
@@ -53,18 +49,6 @@ const Home: React.FC<IHomeProps> = (props) => {
   return (
     <Fragment>
       <Grid container className={classes.root} spacing={2}>
-        {/* <Grid item md={12}>
-          <Card >
-            <CardHeader title="Some Graph of history">
-            </CardHeader>
-
-            <CardContent>
-              <Typography>
-                Some graph will go here.
-                </Typography>
-            </CardContent>
-          </Card>
-        </Grid> */}
         <Grid item md={4}>
           <ToDoCard cardTitle="Recent To Do List" toDoList={currentToDoList} checkEnable={true} editFunction={editToDoList} />
         </Grid>
