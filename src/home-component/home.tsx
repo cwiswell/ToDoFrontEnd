@@ -59,7 +59,6 @@ const Home: React.FC<IHomeProps> = (props) => {
           <ToDoCard cardTitle="Recently Closed" toDoList={recentlyClosed} checkEnable={false} editFunction={editToDoList}/>
         </Grid>
       </Grid>
-
     </Fragment>
   );
 }
