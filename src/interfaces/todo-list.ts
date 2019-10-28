@@ -6,4 +6,5 @@ export default interface ToDoList{
     title: string;
     toDoItems: ToDoItem[];
     dateCreated: Date | null;
+    lastUpdated: Date | null;
 }
