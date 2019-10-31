@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { Paper, Typography, Button, Input, Divider, Grid } from '@material-ui/core';
-import { GetToDo } from '../libs/to-do-data-service';
+import { GetToDo, SaveToDoList } from '../libs/to-do-data-service';
 import ToDoList from '../interfaces/todo-list';
 import AddIcon from '@material-ui/icons/Add';
 import ToDoFormBody from './to-do-form-body';
@@ -39,7 +39,13 @@ const ToDoForm: React.FC<ToDoFormProps> = (props) => {
     });
 
     const saveChanges = () => {
-        alert('Saved');
+        if(data == null){
+            return;
+        }
+
+        SaveToDoList(data as ToDoList).then((res)=>{
+            
+        });
     };
 
     const onTitleChange = (e: React.FormEvent<HTMLTextAreaElement | HTMLInputElement>) => {
