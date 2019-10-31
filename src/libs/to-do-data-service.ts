@@ -35,5 +35,5 @@ export function GetMostRecentActiveToDo(): Promise<ToDoList | null> {
 export function SaveToDoList(toDoList: ToDoList) : Promise<boolean>{
     return new Promise<boolean>((resolve) =>{
         resolve(true);
-    })
+    });
 }
