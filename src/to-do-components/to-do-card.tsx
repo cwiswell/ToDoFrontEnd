@@ -7,7 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
 import ToDo from './to-do';
 import ToDoList from '../interfaces/todo-list';
-import { Typography } from '@material-ui/core';
+import { Typography, Box } from '@material-ui/core';
 
 type IToDoCard =  {
     cardTitle: string;
@@ -30,6 +30,16 @@ const ToDoCard: React.FC<IToDoCard> = (props) => {
     const cardBody = props.toDoList === null ? 
         (<Typography>No to do lists available.</Typography>) :
         (<ToDo data={props.toDoList as ToDoList} enabled={props.checkEnable as boolean} />) 
+        
+    const cardFooter = props.toDoList === null || props.toDoList.dateCreated === null ? 
+    (<Fragment></Fragment>) :
+    (
+    <Typography component="div">
+        <Box fontStyle="italic" m={1} fontWeight="fontWeightLight" fontSize="fontSize">
+            Date Created: {props.toDoList.dateCreated.toLocaleString()}
+        </Box>
+    </Typography>
+    ) 
 
     return (
         <Fragment>
@@ -37,6 +47,7 @@ const ToDoCard: React.FC<IToDoCard> = (props) => {
                 <CardHeader title={props.cardTitle} subheader={subheader} action={editAction} />
                 <CardContent>
                     {cardBody}
+                    {cardFooter}
                 </CardContent>     
             </Card>
         </Fragment>
