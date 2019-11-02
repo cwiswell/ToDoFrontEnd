@@ -5,6 +5,6 @@ export default interface ToDoList{
     active: boolean;
     title: string;
     toDoItems: ToDoItem[];
-    dateCreated: Date | null;
-    lastUpdated: Date | null;
+    dateCreated: Date;
+    lastUpdated: Date;
 }

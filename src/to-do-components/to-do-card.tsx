@@ -31,12 +31,15 @@ const ToDoCard: React.FC<IToDoCard> = (props) => {
         (<Typography>No to do lists available.</Typography>) :
         (<ToDo data={props.toDoList as ToDoList} enabled={props.checkEnable as boolean} />) 
         
-    const cardFooter = props.toDoList === null || props.toDoList.dateCreated === null ? 
+    const cardFooter = props.toDoList === null ? 
     (<Fragment></Fragment>) :
     (
     <Typography component="div">
         <Box fontStyle="italic" m={1} fontWeight="fontWeightLight" fontSize="fontSize">
-            Date Created: {props.toDoList.dateCreated.toLocaleString()}
+            Created: {props.toDoList.dateCreated.toLocaleString()}
+        </Box>
+        <Box fontStyle="italic" m={1} fontWeight="fontWeightLight" fontSize="fontSize">
+            Updated: {props.toDoList.lastUpdated.toLocaleString()}
         </Box>
     </Typography>
     ) 
