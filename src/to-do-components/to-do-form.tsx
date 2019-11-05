@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import { Paper, Typography, Button, Input, Divider, Grid } from '@material-ui/core';
+import { Paper, Typography, Button, Input, Divider, Grid, Box } from '@material-ui/core';
 import { GetToDo, SaveToDoList } from '../libs/to-do-data-service';
 import ToDoList from '../interfaces/todo-list';
 import AddIcon from '@material-ui/icons/Add';
@@ -20,7 +20,7 @@ type ToDoFormProps = {
 }
 
 const ToDoForm: React.FC<ToDoFormProps> = (props) => {
-    const [data, setData] = useState<ToDoList | null>({ title: '' } as ToDoList);
+    const [data, setData] = useState<ToDoList | null>({ title: '', dateCreated: new Date(), lastUpdated: new Date() } as ToDoList);
     const [newText, setNewText] = useState<string>('');
 
     const id = props.match.params.id;
@@ -39,12 +39,12 @@ const ToDoForm: React.FC<ToDoFormProps> = (props) => {
     });
 
     const saveChanges = () => {
-        if(data == null){
+        if (data == null) {
             return;
         }
 
-        SaveToDoList(data as ToDoList).then((res)=>{
-            
+        SaveToDoList(data as ToDoList).then((res) => {
+
         });
     };
 
@@ -68,7 +68,22 @@ const ToDoForm: React.FC<ToDoFormProps> = (props) => {
 
     const body = data === null && id !== undefined ?
         (<Typography> No to do list with id</Typography>) :
-        (<ToDoFormBody data={data == null ? null : data.toDoItems} />);
+        (<Fragment>
+            <ToDoFormBody data={data == null ? null : data.toDoItems} />
+            {
+                data == null ?
+                    (<Fragment></Fragment>) :
+                    (<Typography component="div">
+                        <Box fontStyle="italic" m={1} fontWeight="fontWeightLight" fontSize="fontSize">
+                            Created: {data.dateCreated.toLocaleString()}
+                        </Box>
+                        <Box fontStyle="italic" m={1} fontWeight="fontWeightLight" fontSize="fontSize">
+                            Updated: {data.lastUpdated.toLocaleString()}
+                        </Box>
+                    </Typography>)}
+
+        </Fragment>
+        );
 
     const addItem = () => {
         let newData = data;
