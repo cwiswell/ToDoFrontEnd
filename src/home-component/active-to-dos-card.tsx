@@ -10,6 +10,7 @@ import EditIcon from '@material-ui/icons/Edit';
 
 type ActiveToDoCardProps= {
     editFunction: (id: number) => void;
+    newFunction: () => void;
 }
 
 

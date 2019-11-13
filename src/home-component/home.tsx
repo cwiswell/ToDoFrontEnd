@@ -59,7 +59,7 @@ const Home: React.FC<IHomeProps> = (props) => {
           <ToDoCard cardTitle="Recent To Do List" toDoList={currentToDoList} checkEnable={true} editFunction={editToDoList} />
         </Grid>
         <Grid item md={4}>
-          <ActiveToDosCard editFunction={editToDoList} />
+          <ActiveToDosCard editFunction={editToDoList} newFunction={createToDoList} />
         </Grid>
         <Grid item md={4}>
           <ToDoCard cardTitle="Recently Closed" toDoList={recentlyClosed} checkEnable={false} editFunction={editToDoList}/>
