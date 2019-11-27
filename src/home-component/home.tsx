@@ -6,7 +6,6 @@ import ActiveToDosCard from './active-to-dos-card';
 import { GetMostRecentActiveToDo, GetRecentlyClosedToDo } from '../libs/to-do-data-service';
 import { withStyles } from '@material-ui/styles';
 import { RouteComponentProps, withRouter } from 'react-router';
-import { Button } from '@material-ui/core';
 
 const styles = (theme: any) => ({
   root: {
@@ -53,7 +52,6 @@ const Home: React.FC<IHomeProps> = (props) => {
 
   return (
     <Fragment>
-      <Button onClick={createToDoList}>Add New ToDo List</Button>
       <Grid container className={classes.root} spacing={2}>
         <Grid item md={4}>
           <ToDoCard cardTitle="Recent To Do List" toDoList={currentToDoList} checkEnable={true} editFunction={editToDoList} />

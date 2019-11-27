@@ -5,7 +5,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import ToDoList from '../interfaces/todo-list';
 import { GetActiveToDos } from '../libs/to-do-data-service';
-import { IconButton } from '@material-ui/core';
+import { IconButton, Button } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 
 type ActiveToDoCardProps= {
@@ -40,6 +40,8 @@ const ActiveToDosCard: React.FC<ActiveToDoCardProps> = (props) => {
                                <IconButton onClick={() => {props.editFunction(item.id)}}><EditIcon /></IconButton> {item.title} ({item.toDoItems.filter(x=>!x.checked).length})
                             </Typography>
                         ))}
+                    
+                    <Button onClick={props.newFunction}>Add New ToDo List</Button>
                 </CardContent>
             </Card>
         </Fragment>
